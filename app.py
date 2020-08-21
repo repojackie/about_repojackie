@@ -16,7 +16,7 @@ def portfolio():
     return render_template("portfolio.html")
 
 # chat room
-@app.route("/chatroom")
+@app.route("/chatroom", methods=['GET', 'POST'])
 def chatroom(methods=['GET', 'POST']):
     return render_template("chatroom.html")
 
@@ -32,7 +32,9 @@ def messageReceived(methods=['GET', 'POST']):
 @socketio.on('my event')
 def handle_my_custom_event(json, methods=['GET', 'POST']):
     print("received an event: " + str(json))
-    socketio.emit('my response', json, callback=messageReceived)
+    if (len(json) > 1):
+        # not emitting preliminary connection message!
+        socketio.emit('my response', json, callback=messageReceived)
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)

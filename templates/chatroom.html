@@ -8,7 +8,7 @@
 		<form action="/chatroom" method="POST">
 			<input type="text" class="username" placeholder="Username:"/>
 			<input type="text" class="message" placeholder="Messages"/>
-			<input type="submit"/>
+			<input type="submit"> SEND </input>
 		</form>
 		
 		<h3 style='color: #ccc; font-size: 30px;'> No messages yet... </h3>
@@ -36,7 +36,7 @@
 			})
 			socket.on('my response', function(msg) {
 				$('h3').remove()
-				$('div.message_holder').append('<div><b style="color: #000">' + msg.user_name}
+				$('div.message_holder').append('<div><b style="color: #000">' + msg.user_name)
 		}) 
 		</script>
 	</body>
