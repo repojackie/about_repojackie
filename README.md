@@ -3,9 +3,13 @@ A simple portfolio website for displaying information all about Jackie
 
 # TO-DO
 [] Mainpage
+	[] Navigation bar 
+	[] Blurb about me 
 [] Portfolio page
+	[] Navigation bar
+	[] External links
 [] Chat room (?)
-	[] Flask + SocketIO -> https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d
+	[*] Flask + SocketIO -> https://codeburst.io/building-your-first-chat-application-using-flask-in-7-minutes-f98de4adfa5d
 [] Contacts/outlook
 
 
