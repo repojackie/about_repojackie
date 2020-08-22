@@ -5,7 +5,7 @@ Used tutorials from PrettyPrinted among other to learn about WTForms
 TO-DO: 
     [] Backend for blog - Create an account and allow people to post on certain circumstances? 
 """
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from flask_socketio import SocketIO
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField
@@ -21,7 +21,7 @@ I will look into splitting this into separate files as times goes on-- look up F
 """
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mySHITTYbeingisSURREAL'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////database'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Database.db'
 db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 login_manager = LoginManager()
@@ -91,7 +91,7 @@ def blog_signup():
         db.session.commit()
 
         return '<h1> NEW USER HAS BEEN CREATED! </h1>'
-    return render_template("blog_signup.html")
+    return render_template("blog_signup.html", form=form)
 
 # sign in for blog 
 @app.route("/blog/login", methods=["GET", "POST"])
@@ -104,8 +104,9 @@ def blog_login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user, remember=form.remember.data)
-                return redirect(url_for('blog'))                        # redirecting to the blog creation page
-
+                print(url_for('blog'))
+                return redirect(url_for('blog'))                        
+                
         return '<h1> INVALID USERNAME OR PASSWORD </h1>'
     return render_template("blog_login.html")
 
