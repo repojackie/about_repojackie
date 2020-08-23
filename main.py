@@ -36,6 +36,8 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String(50), unique=True)
     password = db.Column(db.String(80))
 
+db.create_all()
+db.session.commit()
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
@@ -108,7 +110,7 @@ def blog_login():
                 return redirect(url_for('blog'))                        
                 
         return '<h1> INVALID USERNAME OR PASSWORD </h1>'
-    return render_template("blog_login.html")
+    return render_template("blog_login.html", form=form)
 
 
 #######################################################################

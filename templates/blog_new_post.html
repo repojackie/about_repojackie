@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title> NEW POST </title>
+	</head>
+
+	<body>
+		<h1> Hello, {{ name }}! Add a new post! </h1>
+
+		<form action="/blog" method="POST">
+			<h3> Title </h3>
+			<input type="text" name="title" id="title">
+
+			<h3> Author (if you prefer an alias) </h3>
+			<input type="text" name="author" id="author">
+
+			<h3> What would you like to add? </h3>	
+			<textarea id="blurb" name="blurb" rows="4" cols="50"> Add your story here! </textarea>
+		</form>
+	</body>
+</html>
+

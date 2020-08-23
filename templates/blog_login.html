@@ -1,20 +1,26 @@
-<html>
-	<head>
-		<title> LOGIN </title>
-	</head>
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
-	<body>
-		<div class="container">
+{% block title %}
+Login
+{% endblock %}
 
-         	<form class="form-signin" method="POST" action="/login">
-        	<h2 class="form-signin-heading">Please sign in</h2>
-        		{{ form.hidden_tag() }}
-        		{{ wtf.form_field(form.username) }}
-        		{{ wtf.form_field(form.password) }}
-        		{{ wtf.form_field(form.remember) }}
-        		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      		</form>	
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
 
-        	</div>
-	</body>
-</html>
+{% block content %}
+    <div class="container">
+
+      <form class="form-signin" method="POST" action="/blog/login">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        {{ form.hidden_tag() }}
+        {{ wtf.form_field(form.username) }}
+        {{ wtf.form_field(form.password) }}
+        {{ wtf.form_field(form.remember) }}
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+
+    </div> <!-- /container -->
+{% endblock %}
