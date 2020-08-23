@@ -24,5 +24,15 @@
 		<h3> By Jackie! </h3>
 
 		<!--- This is where all of the blog posts shall be served up -->
+
+		{% for post in posts %}
+		<h1> {{ post.title }} </h1>
+		<h3> {{ post.author }} </h3>
+		<p> 
+			{{ post.blurb }}
+		</p>
+
+		<h5> {{ post.time }} </h5>
+		{% endfor %}
 	</body>
 </html>

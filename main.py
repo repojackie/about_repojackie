@@ -82,7 +82,8 @@ def chatroom(methods=['GET', 'POST']):
 # blog
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    posts = BlogPosts.query.order_by(BlogPosts.time.desc()).all()
+    return render_template("blog.html", posts=posts)
 
 # for editing new posts
 @app.route("/blog/new_post", methods=["GET", "POST"])
