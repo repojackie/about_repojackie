@@ -6,7 +6,7 @@
 	<body>
 		<h1> Hello, {{ name }}! Add a new post! </h1>
 
-		<form action="/blog" method="POST">
+		<form action="/blog/new_post" method="POST">
 			<h3> Title </h3>
 			<input type="text" name="title" id="title">
 
@@ -15,6 +15,7 @@
 
 			<h3> What would you like to add? </h3>	
 			<textarea id="blurb" name="blurb" rows="4" cols="50"> Add your story here! </textarea>
+			<input type="submit"> 
 		</form>
 	</body>
 </html>
