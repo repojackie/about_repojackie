@@ -1,5 +1,5 @@
 # about_repojackie
-A simple portfolio website for displaying information all about Jackie
+A simple (but messy) portfolio website for displaying information all about Jackie
 
 # TO-DO
 - CRUD for blog posts under logged in user 
