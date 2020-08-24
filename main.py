@@ -147,7 +147,7 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
     print("received an event: " + str(json))
     if (len(json) > 1):
         # not emitting preliminary connection message!
-        socketio.emit('my response', json, callback=messageReceived)
+        socketio.emit('my response', json)
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)

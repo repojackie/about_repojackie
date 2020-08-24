@@ -6,14 +6,17 @@
 	</head>
 
 	<body>
-		<div class="topnav">
-                        <a class="active" href="/"> HOME </a>
-                        <a href="/chatroom"> CHATROOM </a>
-                        <a href="/blog"> BLOG </a>
-                        <a href="/contacts"> CONTACTS/OUTLOOK </a>
-                        <a href="/portfolio"> PORTFOLIO </a>
-                </div>
+		<nav class="alert alert-dismissible alert-warning">
+                        <div class="navbar-header">
+                        <a  class="active" href="/">    HOME       | </a>
+                        <a  href="/chatroom">   CHATROOM        |</a> 
+                        <a  href="/blog">       BLOG    | </a> 
+                        <a  href="/contacts">   CONTACTS/OUTLOOK        | </a>
+                        <a  href="/portfolio">  PORTFOLIO       | </a> 
+                        </div>
+                </nav>
 
+		<div class="jumbotron">
 		<h1> Chatroom </h1>
 		<form action="/chatroom" method="POST">
 			<input type="text" class="username" placeholder="Username:"/>
@@ -22,6 +25,7 @@
 		</form>
 		
 		<h3 style='color: #ccc; font-size: 30px;'> No messages yet... </h3>
+		
 		<div class="message_holder"> </div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
@@ -49,5 +53,6 @@
 				$('div.message_holder').append('<div><b style="color: #000">' + msg.user_name + '</b> ' + msg.message+'</div>')
 		}) 
 		</script>
+		</div>
 	</body>
 </html>
