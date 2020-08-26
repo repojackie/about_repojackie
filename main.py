@@ -15,7 +15,10 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_bootstrap import Bootstrap
 from datetime import datetime
+import os 
 
+# for production testing
+port = int(os.environ.get("PORT", 5000))
 """
 I will look into splitting this into separate files as times goes on-- look up Flask blueprinting?
 """
@@ -160,4 +163,4 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
         socketio.emit('my response', json)
 
 if __name__ == "__main__":
-    socketio.run(app)
+    socketio.run(app, host='0.0.0.0', port=port)
