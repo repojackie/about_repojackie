@@ -16,6 +16,7 @@ from flask_login import LoginManager, UserMixin, login_user, login_required, log
 from flask_bootstrap import Bootstrap
 from datetime import datetime
 import os 
+from flask_cors import CORS
 
 # for production testing
 port = int(os.environ.get("PORT", 5000))
@@ -23,6 +24,7 @@ port = int(os.environ.get("PORT", 5000))
 I will look into splitting this into separate files as times goes on-- look up Flask blueprinting?
 """
 app = Flask(__name__)
+CORS(app)
 
 # this is unprotected
 app.config['SECRET_KEY'] = 'mySHITTYbeingisSURREAL'
