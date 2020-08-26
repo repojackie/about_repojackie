@@ -20,8 +20,13 @@ from datetime import datetime
 I will look into splitting this into separate files as times goes on-- look up Flask blueprinting?
 """
 app = Flask(__name__)
+
+# this is unprotected
 app.config['SECRET_KEY'] = 'mySHITTYbeingisSURREAL'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///Database.db'
+
+# for production 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ydptvbgggnplga:02922ad529b2a85ad8ff949f33fabda37895da739bd03d1632cd0a93a58afe04@ec2-34-192-122-0.compute-1.amazonaws.com:5432/dc8sbrgi3eg0m8'
+
 db = SQLAlchemy(app)
 bootstrap = Bootstrap(app)
 login_manager = LoginManager()
@@ -102,6 +107,11 @@ def blog_new_post():
         return redirect(url_for("blog"))
     return render_template("blog_new_post.html", name=current_user.username)
 
+# user going to wrong place 
+@login_manager.unauthorized_handler
+def unauthorized_callback():
+    return redirect(url_for('blog_login'))
+
 # sign up for blog posting 
 @app.route("/blog/signup", methods=["GET", "POST"])
 def blog_signup():
@@ -150,4 +160,4 @@ def handle_my_custom_event(json, methods=['GET', 'POST']):
         socketio.emit('my response', json)
 
 if __name__ == "__main__":
-    socketio.run(app, debug=True)
+    socketio.run(app)
