@@ -1,5 +1,9 @@
 # about_repojackie
+<<<<<<< HEAD
 A simple portfolio website for displaying information all about Jackie. 
+=======
+A simple (but messy) portfolio website for displaying information all about Jackie
+>>>>>>> 42a8fef00a7d9c5b8886666a1e2efbc7ce278451
 
 You may access the deployed version of this app from https://about-repojackie.herokuapp.com/ -- notice that the app is not very robust and is highly insecure. Don't put your personal information into it! :)
 
