@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT main:app
+web: gunicorn --worker-class socketio.sgunicorn.GeventSocketIOWorker --log-file=- main:app
