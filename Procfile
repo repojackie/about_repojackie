@@ -1,1 +1,1 @@
-gunicorn --worker-class eventlet --bind 0.0.0.0:5000 main:app
+web: gunicorn --worker-class socketio.gunicorn.GeventSocketIOWorker --log-file=- server:app
